@@ -31,12 +31,10 @@ div <- 0.88
 risk_rate <- 0.02
 to <- c(6,12)
 discount <- 0 
-for (val in to) {
-  if(val %% 12 == 0) {
-    a = val/12
-    discount <- discount + div*exp(-risk_rate * a) 
-  } 
+for (val in 6:12) {
+  if(val %% 6 == 0) {
+    discount <- discount + div*abs(exp(-risk_rate * val/12))
+    } 
 }
-print(discount)
 dis_amount <- pvi - discount
 print(dis_amount*exp(risk_rate))
